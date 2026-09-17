@@ -6,7 +6,8 @@ from .intents import (
    TICKET_STATUS,
    HUMAN_SUPPORT,
    GOODBYE, SYSTEM_ERROR,
-   WORKING_HOURS
+   WORKING_HOURS,
+   THANKYOU
 )
 
 RULES = {
@@ -18,41 +19,56 @@ RULES = {
          "hey",
          "good morning"
          "good afternoon",
-         "good evening"
+         "good evening",
+         "morning",
+         "afternoon",
+         "evening",
+         "Hello RuleBotics"
       ],
       "response" :"Hello! How can I help you"
    },
 
-   PASSWORD_RESET:{
-      "keywords":[
-      "forgot pw",
-      "forgot password",
-      "reset password",
-      "password forgot",
-      "password forgotten",
-      "lost pw",
-      "lost password",
-      "change pw",
-      "change password"
 
-      ],
-      "response":"You can reset your password from the account settings"
-      },
-      LOGIN_PROBLEM:{
-         "keywords":[
+    PASSWORD_RESET: {
+        "keywords": [
+            "forgot pw",
+            "forgot password",
+            "forgot my password",
+            "reset password",
+            "password forgot",
+            "password forgotten",
+            "lost pw",
+            "lost password",
+            "change pw",
+            "change password",
+            "lose password",
+            "loses pw"
+        ],
+        "response": (
+            "You can reset your password from the account settings."
+        )
+    },
+
+
+    LOGIN_PROBLEM: {
+        "keywords": [
+            "cannot login",
             "can not login",
             "can't login",
             "cant login",
             "login failed",
-            "lgin not corrected",
+            "login problem",
+            "login issue",
+            "login not working",
             "unable to login",
-
-         ],
-         "response":("Kindly please check your username and password."
-         "If stil problen occured, Add a support ticket.")
-      },
-
-      SYSTEM_ERROR:{
+            "cant access the login"
+        ],
+        "response": (
+            "Kindly check your username and password. "
+            "If the problem still occurs, add a support ticket."
+        )
+    },
+   SYSTEM_ERROR:{
          "keywords":[
             "error in system",
             "system error",
@@ -61,9 +77,11 @@ RULES = {
             "application error",
             "app is not working",
             "web app isnt working",
-            "web app is not working"
+            "web app is not working",
             "web app not support",
             "application error",
+            "error in application"
+            
             
          ],
          "response":(
@@ -73,7 +91,7 @@ RULES = {
          )
       },
 
-      WORKING_HOURS:{
+   WORKING_HOURS:{
          "keywords":[
             "working hours",
             "operating hours"
@@ -84,7 +102,7 @@ RULES = {
             "opening hour",
             "what time are you open",
             "when are you open",
-            "what is ofiice time",
+            "what is ofiice time"
             
          ],
          "response":(
@@ -92,7 +110,7 @@ RULES = {
             "9:30 AM to 5:30 PM, Monday to Sunday"
          )
       },
-      HUMAN_SUPPORT:{
+   HUMAN_SUPPORT:{
          "keywords":[
             "human",
             "In person",
@@ -101,7 +119,7 @@ RULES = {
             "support staff",
             "talk to someone",
             "talk to person",
-            "human support",
+            "human support"
             
          ],
          "response":(
@@ -109,7 +127,7 @@ RULES = {
          )
       },
 
-      GOODBYE:{
+   GOODBYE:{
          "keywords":[
             "bye",
             "goddbye",
@@ -117,9 +135,48 @@ RULES = {
             "see you",
             "see you again",
             "see you later"
+            
          ],
          "response":(
             "Goodbye! Have a nice day. "
          )
+      },
+   THANKYOU:{
+         "keywords":[
+            "Thanks",
+            "Thanks for your help",
+            "Thank for your support",
+            "Thank",
+            "Thank for support"
+         ],
+         "response":(
+            "You're welcome, Come again if you want any support"
+         )
+      },
+   TICKET_CREATE:{
+         "keywords":[
+            "create ticket",
+            "open ticket",
+            "new ticket",
+            "raise ticket",
+            "submit ticket",
+            "create a support ticket"
+         ],
+         "response":(
+            "Sure, I can help you craete support ticket."
+         )
+      },
+   TICKET_STATUS:{
+         "keywords":[
+            "ticket status",
+            "check ticket",
+            "ticket progress",
+            "ticket update",
+            "status of my ticket"
+         ],
+         "response":(
+            "Please provide your ticket number so i can chcek the its status"
+         )
       }
+   
 }
