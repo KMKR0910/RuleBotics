@@ -9,3 +9,8 @@ def prepocess_text(text:str)->str:
    text= re.sub(r"[^\w\s]","",text)
 
    return text
+
+
+def tokenize(text:str)-> list[str]:
+   text=prepocess_text(text)
+   return text.split()

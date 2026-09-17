@@ -22,46 +22,53 @@ RULES = {
          "good evening",
          "morning",
          "afternoon",
-         "evening"
+         "evening",
          "Hello RuleBotics"
       ],
       "response" :"Hello! How can I help you"
    },
 
-   PASSWORD_RESET:{
-      "keywords":[
-      "forgot pw",
-      "forgot password",
-      "reset password",
-      "password forgot",
-      "password forgotten",
-      "lost pw",
-      "lost password",
-      "change pw",
-      "change password",
-      "lose password",
-      "loses pw"
-      
 
-      ],
-      "response":"You can reset your password from the account settings"
-      },
-      LOGIN_PROBLEM:{
-         "keywords":[
+    PASSWORD_RESET: {
+        "keywords": [
+            "forgot pw",
+            "forgot password",
+            "forgot my password",
+            "reset password",
+            "password forgot",
+            "password forgotten",
+            "lost pw",
+            "lost password",
+            "change pw",
+            "change password",
+            "lose password",
+            "loses pw"
+        ],
+        "response": (
+            "You can reset your password from the account settings."
+        )
+    },
+
+
+    LOGIN_PROBLEM: {
+        "keywords": [
+            "cannot login",
             "can not login",
             "can't login",
             "cant login",
             "login failed",
-            "lgin not corrected",
+            "login problem",
+            "login issue",
+            "login not working",
             "unable to login",
-            "cant acces the login"
-
-         ],
-         "response":("Kindly please check your username and password."
-         "If stil problen occured, Add a support ticket.")
-      },
-
-      SYSTEM_ERROR:{
+            "cant access the login"
+        ],
+        "response": (
+            "Kindly check your username and password. "
+            "If the problem still occurs, add a support ticket."
+        )
+    },
+   SYSTEM_ERROR:{
          "keywords":[
             "error in system",
             "system error",
@@ -70,7 +77,7 @@ RULES = {
             "application error",
             "app is not working",
             "web app isnt working",
-            "web app is not working"
+            "web app is not working",
             "web app not support",
             "application error",
             "error in application"
@@ -84,7 +91,7 @@ RULES = {
          )
       },
 
-      WORKING_HOURS:{
+   WORKING_HOURS:{
          "keywords":[
             "working hours",
             "operating hours"
@@ -103,7 +110,7 @@ RULES = {
             "9:30 AM to 5:30 PM, Monday to Sunday"
          )
       },
-      HUMAN_SUPPORT:{
+   HUMAN_SUPPORT:{
          "keywords":[
             "human",
             "In person",
@@ -120,7 +127,7 @@ RULES = {
          )
       },
 
-      GOODBYE:{
+   GOODBYE:{
          "keywords":[
             "bye",
             "goddbye",
@@ -134,7 +141,7 @@ RULES = {
             "Goodbye! Have a nice day. "
          )
       },
-      THANKYOU:{
+   THANKYOU:{
          "keywords":[
             "Thanks",
             "Thanks for your help",
@@ -146,7 +153,7 @@ RULES = {
             "You're welcome, Come again if you want any support"
          )
       },
-      TICKET_CREATE:{
+   TICKET_CREATE:{
          "keywords":[
             "create ticket",
             "open ticket",
@@ -159,7 +166,7 @@ RULES = {
             "Sure, I can help you craete support ticket."
          )
       },
-      TICKET_STATUS:{
+   TICKET_STATUS:{
          "keywords":[
             "ticket status",
             "check ticket",
