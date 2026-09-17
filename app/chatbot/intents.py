@@ -18,3 +18,5 @@ HUMAN_SUPPORT ="human_support"
 GOODBYE ="goodbye"
 
 UNKNOWN ="unknown"
+
+THANKYOU="thankyou"

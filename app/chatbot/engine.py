@@ -6,19 +6,23 @@ from .preprocessing import prepocess_text
 def cal_score_keyword(message:str, keywords:list[str])->float:
 
 
-   matched_keywords=0
+   best_score=0.0
 
    for keyword in keywords:
-      keyword= prepocess_text(keyword)
+      keyword=prepocess_text(keyword)
 
-      if keyword in message:
-         matched_keywords +=1
+      if keyword==message:
+         score=1.0
 
-   if len(keyword)==0:
-      return 0.0
+      elif keyword in message:
+         score=0.9
 
-   
-   return matched_keywords/len(keyword)
+      else:
+         score=0.0
+
+      best_score=max(best_score,score)
+
+      return best_score
 
 def intent_detect(message:str)->dict:
 
@@ -36,6 +40,8 @@ def intent_detect(message:str)->dict:
          best_score=score
          best_intent=intent
 
+   if best_score<0.5:
+      best_intent=UNKNOWN
       
    return{
       "intent":best_intent,

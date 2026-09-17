@@ -6,7 +6,8 @@ from .intents import (
    TICKET_STATUS,
    HUMAN_SUPPORT,
    GOODBYE, SYSTEM_ERROR,
-   WORKING_HOURS
+   WORKING_HOURS,
+   THANKYOU
 )
 
 RULES = {
@@ -18,7 +19,11 @@ RULES = {
          "hey",
          "good morning"
          "good afternoon",
-         "good evening"
+         "good evening",
+         "morning",
+         "afternoon",
+         "evening"
+         "Hello RuleBotics"
       ],
       "response" :"Hello! How can I help you"
    },
@@ -33,7 +38,10 @@ RULES = {
       "lost pw",
       "lost password",
       "change pw",
-      "change password"
+      "change password",
+      "lose password",
+      "loses pw"
+      
 
       ],
       "response":"You can reset your password from the account settings"
@@ -46,6 +54,7 @@ RULES = {
             "login failed",
             "lgin not corrected",
             "unable to login",
+            "cant acces the login"
 
          ],
          "response":("Kindly please check your username and password."
@@ -64,6 +73,8 @@ RULES = {
             "web app is not working"
             "web app not support",
             "application error",
+            "error in application"
+            
             
          ],
          "response":(
@@ -84,7 +95,7 @@ RULES = {
             "opening hour",
             "what time are you open",
             "when are you open",
-            "what is ofiice time",
+            "what is ofiice time"
             
          ],
          "response":(
@@ -101,7 +112,7 @@ RULES = {
             "support staff",
             "talk to someone",
             "talk to person",
-            "human support",
+            "human support"
             
          ],
          "response":(
@@ -117,9 +128,35 @@ RULES = {
             "see you",
             "see you again",
             "see you later"
+            
          ],
          "response":(
             "Goodbye! Have a nice day. "
          )
+      },
+      THANKYOU:{
+         "keywords":[
+            "Thanks",
+            "Thanks for your help",
+            "Thank for your support",
+            "Thank",
+            "Thank for support"
+         ],
+         "response":(
+            "You're welcome, Come again if you want any support"
+         )
       }
+      # TICKET_CREATE:{
+      #    "keywords":[
+      #       ""
+      #    ],
+      #    "response":()
+      # },
+      # TICKET_STATUS:{
+      #    "keywords":[
+      #       ""
+      #    ],
+      #    "response":()
+      # }
+   
 }
