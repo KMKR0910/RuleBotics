@@ -22,7 +22,7 @@ def cal_score_keyword(message:str, keywords:list[str])->float:
 
       best_score=max(best_score,score)
 
-      return best_score
+   return best_score
 
 def intent_detect(message:str)->dict:
 

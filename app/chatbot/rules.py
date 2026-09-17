@@ -145,18 +145,31 @@ RULES = {
          "response":(
             "You're welcome, Come again if you want any support"
          )
+      },
+      TICKET_CREATE:{
+         "keywords":[
+            "create ticket",
+            "open ticket",
+            "new ticket",
+            "raise ticket",
+            "submit ticket",
+            "create a support ticket"
+         ],
+         "response":(
+            "Sure, I can help you craete support ticket."
+         )
+      },
+      TICKET_STATUS:{
+         "keywords":[
+            "ticket status",
+            "check ticket",
+            "ticket progress",
+            "ticket update",
+            "status of my ticket"
+         ],
+         "response":(
+            "Please provide your ticket number so i can chcek the its status"
+         )
       }
-      # TICKET_CREATE:{
-      #    "keywords":[
-      #       ""
-      #    ],
-      #    "response":()
-      # },
-      # TICKET_STATUS:{
-      #    "keywords":[
-      #       ""
-      #    ],
-      #    "response":()
-      # }
    
 }
