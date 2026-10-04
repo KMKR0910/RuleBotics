@@ -10,7 +10,6 @@ def cal_score_keyword(
 ) -> float:
 
     message_text = " ".join(message_tokens)
-
     best_score = 0.0
 
     for keyword, weight in keywords.items():
@@ -18,12 +17,22 @@ def cal_score_keyword(
         keyword_tokens = prepocess_text(keyword)
         keyword_text = " ".join(keyword_tokens)
 
-        similarity = ratio(
-            message_text,
-            keyword_text
-        ) / 100
+        # Exact match
+        if message_text == keyword_text:
+            score = weight
 
-        score = similarity * weight
+        # Keyword/phrase exists inside the message
+        elif keyword_text in message_text:
+            score = weight * 0.95
+
+        # Fuzzy matching
+        else:
+            similarity = ratio(
+                message_text,
+                keyword_text
+            ) / 100
+
+            score = similarity * weight
 
         if score > best_score:
             best_score = score
@@ -46,7 +55,7 @@ def intent_detect(message:str)->dict:
          best_score=score
          best_intent=intent
 
-   if best_score<0.5:
+   if best_score<0.7:
       best_intent=UNKNOWN
       
    return{
