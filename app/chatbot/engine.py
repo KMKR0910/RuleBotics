@@ -1,32 +1,47 @@
 from .rules import RULES
 from .intents import UNKNOWN
 from .preprocessing import prepocess_text
+from rapidfuzz.fuzz import ratio
 
 
-def cal_score_keyword(message:str, keywords:list[str])->float:
+def cal_score_keyword(
+    message_tokens: list[str],
+    keywords: dict[str, float]
+) -> float:
 
+    message_text = " ".join(message_tokens)
+    best_score = 0.0
 
-   best_score=0.0
+    for keyword, weight in keywords.items():
 
-   for keyword in keywords:
-      keyword=prepocess_text(keyword)
+        keyword_tokens = prepocess_text(keyword)
+        keyword_text = " ".join(keyword_tokens)
 
-      if keyword==message:
-         score=1.0
+        # Exact match
+        if message_text == keyword_text:
+            score = weight
 
-      elif keyword in message:
-         score=0.9
+        # Keyword/phrase exists inside the message
+        elif keyword_text in message_text:
+            score = weight * 0.95
 
-      else:
-         score=0.0
+        # Fuzzy matching
+        else:
+            similarity = ratio(
+                message_text,
+                keyword_text
+            ) / 100
 
-      best_score=max(best_score,score)
+            score = similarity * weight
 
-   return best_score
+        if score > best_score:
+            best_score = score
 
+    return round(best_score, 2)
+   
 def intent_detect(message:str)->dict:
 
-   message= prepocess_text(message)
+   message_tokens= prepocess_text(message)
 
    best_intent= UNKNOWN
    best_score=0.0
@@ -40,7 +55,7 @@ def intent_detect(message:str)->dict:
          best_score=score
          best_intent=intent
 
-   if best_score<0.5:
+   if best_score<0.7:
       best_intent=UNKNOWN
       
    return{
