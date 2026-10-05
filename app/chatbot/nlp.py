@@ -25,9 +25,11 @@ STOP_WORDS = {
     "for",
     "in",
     "on",
-    "with"
+    "with",
+    "have",
+    "what",
+    "your"
 }
-
 def remove_stop_words(tokens:list[str])->list[str]:
 
    return [
@@ -47,6 +49,7 @@ SYNONYMS = {
     "login": "login",
     "signin": "login",
     "sign": "login",
+    "signing": "login",
 
     "problem": "problem",
     "issue": "problem",

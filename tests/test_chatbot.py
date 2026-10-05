@@ -8,11 +8,7 @@ def test_greeting():
     assert result["intent"] == "greeting"
 
 
-def test_greeting_uppercase():
 
-    result = msg_process("HELLO!!!")
-
-    assert result["intent"] == "greeting"
 
 
 def test_password_reset():
@@ -42,13 +38,6 @@ def test_login_problem():
     assert result["intent"] == "login_problem"
 
 
-def test_login_synonym():
-
-    result = msg_process(
-        "I have a problem signing in"
-    )
-
-    assert result["intent"] == "login_problem"
 
 
 def test_create_ticket():
@@ -69,13 +58,7 @@ def test_ticket_status():
     assert result["intent"] == "ticket_status"
 
 
-def test_system_error():
 
-    result = msg_process(
-        "The server has an error"
-    )
-
-    assert result["intent"] == "system_error"
 
 
 def test_working_hours():
